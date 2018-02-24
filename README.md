@@ -1,20 +1,22 @@
 # NpmScripts
 
-To start your Phoenix server:
+1. Create new project:
+    * `mix phx.new proj_name`
+2. When asking to fetch dependencies say NO
+3. `cd proj_name`
+4. `mix deps.get`
+5. Remove all brunch scripts and dependencies in package.json
+6. copy package.json from this template project
+7. `cd assets && npm run setup && npm install`
+    1. npm run setup does:
+        * Deletes brunch-config.js
+        * Changes css folder name to scss.
+        * Changes extensions to scss and puts and underscore in front of phoenix.scss. 
+        * Adds import statement on app.scss to import scss from \_phoenix.scss.
+        * Creates priv/static/js folder and app.js inside that folder.
+8. Copy build.js from this template project to your assets folder. Make sure you have also .eslintrc.\* and .babelrc config files there as well.
+9. Install exit_on_eof (to end watchers when exiting phoenix):
+    * $ npm install -g exit_on_eof
+10. In your project config/dev.exs file, change watchers option to be the same as the current project.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+This is supposed to be a basic configuration for development mode.
