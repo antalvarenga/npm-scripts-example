@@ -8,7 +8,7 @@
 5. Remove all brunch scripts and dependencies in package.json
 6. copy package.json from this template project
 7. `cd assets && npm run setup && npm install`
-    1. npm run setup does:
+    * npm run setup does:
         * Deletes brunch-config.js
         * Changes css folder name to scss.
         * Changes extensions to scss and puts and underscore in front of phoenix.scss. 
