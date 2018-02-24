@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "setup": "rm -f brunch-config.js && mv css scss && mv scss/app.css scss/app.scss && mv scss/phoenix.css scss/_phoenix.scss && mkdir ../priv/static && mkdir ../priv/static/js && touch ../priv/static/js/app.js && printf \"\\n@import 'phoenix';\\n\" >> scss/app.scss",
-    "scss": "node-sass-chokidar --source-map true --source-map-contents true scss/app.scss -o ../priv/static/css",
+    "scss": "node-sass-chokidar -q --source-map true --source-map-contents true scss/app.scss -o ../priv/static/css",
     "autoprefixer": "postcss -u autoprefixer -r  ../priv/static/css/*.css",
     "lint": "eslint --fix js",
     "build:js": "npm run lint && node build.js",

@@ -11,7 +11,7 @@ config :npm_scripts, NpmScriptsWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [exit_on_eof: ["npm run watch", cd: Path.expand("../assets", __DIR__)]]
+  watchers: [exit_on_eof: ["npm run -s watch", cd: Path.expand("../assets", __DIR__)]]
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
