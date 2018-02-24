@@ -1,0 +1,36 @@
+{
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "setup": "rm -f brunch-config.js && mv css scss && mv scss/app.css scss/app.scss && mv scss/phoenix.css scss/_phoenix.scss && mkdir ../priv/static && mkdir ../priv/static/js && touch ../priv/static/js/app.js && printf \"\\n@import 'phoenix';\\n\" >> scss/app.scss",
+    "scss": "node-sass-chokidar --source-map true --source-map-contents true scss/app.scss -o ../priv/static/css",
+    "autoprefixer": "postcss -u autoprefixer -r  ../priv/static/css/*.css",
+    "lint": "eslint --fix js",
+    "build:js": "npm run lint && node build.js",
+    "build:css": "npm run scss",
+    "build:static": "cp -R static/* ../priv/static/",
+    "build": "npm-run-all build:*",
+    "watch:static": "onchange 'static/*' -- npm run build:static",
+    "watch:css": "onchange 'scss/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'js/*.js' -- npm run build:js",
+    "prewatch": "npm run build",
+    "watch": "npm-run-all --parallel watch:*"
+  },
+  "dependencies": {
+    "phoenix": "file:../deps/phoenix",
+    "phoenix_html": "file:../deps/phoenix_html"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.1.0",
+    "eslint": "^4.18.1",
+    "exorcist": "^1.0.1",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.2",
+    "onchange": "^3.3.0",
+    "postcss-cli": "^5.0.0"
+  }
+}
