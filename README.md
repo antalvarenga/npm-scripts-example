@@ -16,7 +16,7 @@
         * Creates priv/static/js folder and app.js inside that folder.
 8. Copy build.js from this template project to your assets folder. Make sure you have also .eslintrc.\* and .babelrc config files there as well.
 9. Install exit_on_eof (to end watchers when exiting phoenix):
-    * $ npm install -g exit_on_eof
+    * `npm install -g exit_on_eof`
 10. In your project config/dev.exs file, change watchers option to be the same as the current project.
 
 This is supposed to be a basic configuration for development mode.
